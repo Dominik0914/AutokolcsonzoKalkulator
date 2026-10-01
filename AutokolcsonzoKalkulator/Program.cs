@@ -21,7 +21,7 @@ for (int i=0;i<4;i++)
     {
         kedvezmeny = 0.15;
     }
-    else if (napok < 7)
+    else if (napok >= 3 && napok<7 )
     {
         kedvezmeny = 0.05;
     }
@@ -36,10 +36,10 @@ int napiossz = 0;
 string status = "";
 for (int i = 0; i < szamossz.Count; i++)
 {
-    napiossz = + szamossz[i];
+    napiossz += szamossz[i];
 }
 double atlag = napiossz/4.0; 
-if (napiossz <= 200000)
+if (napiossz >= 200000)
 {
     status = "Kiemelkedő forgalmú nap!";
 }
@@ -51,3 +51,12 @@ else
 {
     status="Gyenge forgalmú nap."; 
 }
+Console.WriteLine("Rögzített kölcsönzések díjai:");
+for (int i = 0; i < 4; i++)
+{
+    Console.WriteLine($"\t- {i + 1}. bérlés: {szamossz[i]} Ft");
+}
+
+Console.WriteLine($"Napi teljes bevétel: {napiossz} Ft");
+Console.WriteLine($"Átlagos kölcsönzési díj: {atlag:F0} Ft");
+Console.WriteLine($"Napi értékelés: {status}");
