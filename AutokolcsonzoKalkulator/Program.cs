@@ -32,3 +32,22 @@ for (int i=0;i<4;i++)
     int ujossz = ossz - (int)(ossz*kedvezmeny);
     szamossz.Add(ujossz);
 }
+int napiossz = 0;
+string status = "";
+for (int i = 0; i < szamossz.Count; i++)
+{
+    napiossz = + szamossz[i];
+}
+double atlag = napiossz/4.0; 
+if (napiossz <= 200000)
+{
+    status = "Kiemelkedő forgalmú nap!";
+}
+else if (100000<napiossz && napiossz<200000)
+{
+    status = "Átlagos forgalmú nap.";
+}
+else
+{
+    status="Gyenge forgalmú nap."; 
+}
