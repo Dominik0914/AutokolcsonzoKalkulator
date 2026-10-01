@@ -1,6 +1,8 @@
 ﻿//2.feladat
 List<int> szamossz = new List<int>();
 double kedvezmeny = 0;
+int legnagyobb = 0;
+string legjobbnev = "";
 for (int i=0;i<4;i++)
 {
     Console.WriteLine($"{i + 1}. bérlés adatai");
@@ -30,6 +32,11 @@ for (int i=0;i<4;i++)
         kedvezmeny = 0;
     }
     int ujossz = ossz - (int)(ossz*kedvezmeny);
+    if (ujossz>legnagyobb)
+    {
+        legnagyobb = ujossz;
+        legjobbnev = nev;
+    }
     szamossz.Add(ujossz);
 }
 int napiossz = 0;
@@ -60,3 +67,4 @@ for (int i = 0; i < 4; i++)
 Console.WriteLine($"Napi teljes bevétel: {napiossz} Ft");
 Console.WriteLine($"Átlagos kölcsönzési díj: {atlag:F0} Ft");
 Console.WriteLine($"Napi értékelés: {status}");
+Console.WriteLine($"Legjobb vásárló: {legjobbnev} összege: {legnagyobb} Ft-al");
